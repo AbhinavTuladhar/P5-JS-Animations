@@ -1,0 +1,14 @@
+addons/
+Angled lines/
+Cellular automata/
+Circle illusion/
+Circle illusion - real/
+Game of Life/
+Game of Life 2/
+
+*/libraries/
+*/jsconfig.json
+
+p5.js
+p5.min.js
+
