@@ -1,6 +1,6 @@
-## Pendulum waves - circles - 1
+## Pendulum waves - blocks - 2
 
-A bunch of circles moving around within a circle.
+A bunch of blocks bouncing around in the y axis
 
 
-![Test image](../Screenshots/Pendulum%20wave%20-%20circles%20-%201.jpg)
+![Test image](../Screenshots/Blocks%20-%202.jpg)
