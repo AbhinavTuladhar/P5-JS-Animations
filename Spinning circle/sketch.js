@@ -3,10 +3,10 @@ let height = 600;
 let XC = width / 2;
 let YC = height / 2;
 let largerRadius = YC - 20;
-let smallerRadius = 20;
+let smallerRadius = 16;
 let angle = 0.1;
-let lineCount = 16;
-let lineLength = largerRadius
+let lineCount = 24;
+let lineLength = largerRadius + smallerRadius / 2
 let x;
 let y;
 let counter = 0;
@@ -24,11 +24,11 @@ function draw() {
     translate(XC, YC);
     fill(50);
     stroke(255);
-    circle(0, 0, largerRadius*2);
+    circle(0, 0, (largerRadius + smallerRadius / 2) *2);
 
     for (let i = 0; i < lineCount; i++) {
         rotate((Math.PI / 1) / lineCount);
-        let dx = lineLength * cos(counter * speedFactor * (i+1) + i * Math.PI / (lineCount))
+        let dx = (lineLength - smallerRadius / 2) * cos(counter * speedFactor * (i+1) + i * Math.PI / (lineCount))
         line(-lineLength, 0, lineLength, 0)
 
         fill(255);
