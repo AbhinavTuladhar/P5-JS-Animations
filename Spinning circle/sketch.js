@@ -3,14 +3,14 @@ let height = 600;
 let XC = width / 2;
 let YC = height / 2;
 let largerRadius = YC - 20;
-let smallerRadius = 16;
+let smallerRadius = 12;
 let angle = 0.1;
-let lineCount = 24;
+let lineCount = 32;
 let lineLength = largerRadius + smallerRadius / 2
 let x;
 let y;
 let counter = 0;
-let speedFactor = 0.2
+let speedFactor = 0.1
 
 function setup() {
     createCanvas(width, height);

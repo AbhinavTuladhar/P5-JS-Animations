@@ -3,7 +3,7 @@ let height = 650;
 let containerWidth = 1250;
 let containerHeight = 600;
 let blockCount = 16;
-let speedFactor = 1.2;
+let speedFactor = 0.8;
 let timeSteps = 10**2;
 let startingVel = 1 / timeSteps;
 
