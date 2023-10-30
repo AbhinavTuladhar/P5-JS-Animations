@@ -1,5 +1,5 @@
 const width = 1350, height = 630
-const barWidth = 1
+const barWidth = 2
 const increment = height / (width / barWidth)
 const barCount = Math.floor(width / barWidth)
 
@@ -14,12 +14,15 @@ const barCount = Math.floor(width / barWidth)
  */
 const colourMappings = new Map([
   [0, '#E0777D'],
-  [1, 'greenyellow']
+  // [2, 'greenyellow'],
+  [1, [0, 255, 0]]
 ])
 
 let values = []
 let states = []
 let delay = 20
+let sortFlag = false
+let sweepInProgress = false
 
 const shuffle = (array) => { 
   for (let i = array.length - 1; i > 0; i--) { 
@@ -50,7 +53,7 @@ function setup() {
 
 function draw() {
   background(20)
-  drawGraph()
+  drawGraph();
 }
 
 function drawGraph() {
@@ -60,8 +63,7 @@ function drawGraph() {
       fill(colourMappings.get(0))
     } else if (states[index] === 1) {
       fill(colourMappings.get(1))
-    }
-    else {
+    } else {
       fill(230)
     }
     rect(index * barWidth, height - value, barWidth, value)
@@ -83,6 +85,7 @@ async function quickSortV1(arr, start, end) {
 
 async function quickSortV2(arr, start, end) {
   if (start >= end) {
+    sortFlag = true
     return
   }
 
