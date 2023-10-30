@@ -1,5 +1,6 @@
 const width = 1350, height = 630
 const barWidth = 1
+const increment = height / (width / barWidth)
 const barCount = Math.floor(width / barWidth)
 
 /**
@@ -18,19 +19,33 @@ const colourMappings = new Map([
 
 let values = []
 let states = []
-let delay = 10
+let delay = 20
+
+const shuffle = (array) => { 
+  for (let i = array.length - 1; i > 0; i--) { 
+    const j = Math.floor(Math.random() * (i + 1)); 
+    [array[i], array[j]] = [array[j], array[i]]; 
+  } 
+  return array; 
+}; 
 
 function setup() {
   createCanvas(width, height);
   frameRate(60)
 
+  let step = 0
+
   for (let i = 0; i < barCount; i++) {
-    randomValue = random(height)
-    values.push(randomValue)
+    values.push(step)
+    step += increment
     states.push(-1)
   }
+
+  // Shuffle the array
+  let valuesShuffled = shuffle(values)
+
   // quickSortV1(values, 0, values.length)
-  quickSortV2(values, 0, values.length - 1)
+  quickSortV2(valuesShuffled, 0, valuesShuffled.length - 1)
 }
 
 function draw() {
@@ -47,7 +62,7 @@ function drawGraph() {
       fill(colourMappings.get(1))
     }
     else {
-      fill(255)
+      fill(230)
     }
     rect(index * barWidth, height - value, barWidth, value)
   })

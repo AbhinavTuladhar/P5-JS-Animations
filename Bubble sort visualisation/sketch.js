@@ -1,20 +1,33 @@
 const width = 1350, height = 630
 const barWidth = 10
+const increment = height / (width / barWidth)
 const barCount = Math.floor(width / barWidth)
 
 let values = []
 let i = 0;
 let j = 0;
-let frequency = 32
+let frequency = 8
+
+const shuffle = (array) => { 
+  for (let i = array.length - 1; i > 0; i--) { 
+    const j = Math.floor(Math.random() * (i + 1)); 
+    [array[i], array[j]] = [array[j], array[i]]; 
+  } 
+  return array; 
+}; 
 
 function setup() {
   createCanvas(width, height);
-  frameRate(30)
+  frameRate(60)
+
+  let step = 0
 
   for (let i = 0; i < barCount; i++) {
-    randomValue = random(height)
-    values.push(randomValue)
+    values.push(step)
+    step += increment
   }
+
+  values = shuffle(values)
 }
 
 function draw() {
